@@ -80,8 +80,8 @@ selected_features = train_x.columns[selected_feature_indices]
 print("Selected Features:", selected_features)
 
 #%%
-np.save(f'Coxnet_MeanImpute_StandardScaler_SequentialFeatureSelectionForwardn{num_features}.npy', X_train_reduced)
-X_train_reduced = np.load('Coxnet_MeanImpute_StandardScaler_SequentialFeatureSelectionForwardn20.npy')
+np.save(f'CoxPH_MeanImpute_StandardScaler_SequentialFeatureSelectionForwardn{num_features}.npy', X_train_reduced)
+X_train_reduced = np.load(f'CoxPH_MeanImpute_StandardScaler_SequentialFeatureSelectionForwardn{num_features}.npy')
 
 #%%
 t3 = time.time()
@@ -265,3 +265,4 @@ patient_ids = reg_report['PatientID'].tolist()
 test_reg_data = np.column_stack((patient_ids, predicted_pfs))
 reg_df = pd.DataFrame(test_reg_data, columns=column_names)
 reg_df.to_excel('SNMMI_CHALLENGE_TESTING_REPORTFORM_ContinuousOutcome.xlsx', index=False)
+# %%
